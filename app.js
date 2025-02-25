@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const app = express();
-const port = 4000;
+const port = 3000;
 
 // Configurer EJS comme moteur de template
 app.set('view engine', 'ejs');
