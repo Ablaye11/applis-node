@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un utilisateur</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Modifier un utilisateur</h1>
+    <form action="/edit-utilisateur/<%= utilisateur.id %>" method="POST">
+        <label for="nom">Nom d'utilisateur :</label>
+        <input type="text" id="nom" name="nom" value="<%= utilisateur.nom %>" required>
+        <br>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" value="<%= utilisateur.email %>" required>
+        <br>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" value="<%= utilisateur.password %>" required>
+        <br>
+        <button type="submit">Modifier</button>
+    </form>
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>

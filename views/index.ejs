@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Application Node.js</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Liste des utilisateurs</h1>
+    <a href="/add-utilisateur" class="add-user-link">Ajouter un utilisateur</a>
+    <ul>
+        <% utilisateurs.forEach(utilisateur => { %>
+            <li>
+                <%= utilisateur.nom %> - <%= utilisateur.email %>
+                <a href="/edit-utilisateur/<%= utilisateur.id %>">Modifier</a>
+                <a href="/delete-utilisateur/<%= utilisateur.id %>" onclick="return confirmDelete()">Supprimer</a>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/" class="return-home">Retour à l'accueil</a>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');
+        }
+    </script>
+</body>
+</html>
