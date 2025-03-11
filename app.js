@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const mysql = require('mysql2');
 const app = express();
-const port = 3000;
+const port = 4000;
 
 // Configurer EJS comme moteur de template
 app.set('view engine', 'ejs');
@@ -13,11 +15,12 @@ app.use(express.static('public'));
 
 // Connexion à la base de données MySQL
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // Utilisateur par défaut de XAMPP
-    password: 'Dakar20230', // Mot de passe par défaut de XAMPP
-    database: 'applis_db' // Nom de la base de données
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
+
 
 // Tester la connexion à la base de données
 connection.connect((err) => {
